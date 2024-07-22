@@ -16,6 +16,6 @@ Pythonはprint程度、numpy,pandasはインストールくらいの経験値な
 Ubuntu
 
 ## データの取得
-
+a
 
 ## Loading and Displaying CSV
