@@ -1,4 +1,4 @@
-(./fig/titanic-logo.png)
+![logo](./fig/titanic-logo.png)
 
 ## はじめに
 
