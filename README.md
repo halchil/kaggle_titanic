@@ -22,13 +22,30 @@ Pythonはprint程度、numpy,pandasはインストールくらいの経験値な
 Ubuntu
 
 ## データの取得
-まず、KaggleのCompetitionにアクセスしてデータを取得する。
+まず、KaggleのCompetitionにアクセスしてデータを取得する。  
 ![logo](./fig/fig1.png)
+
+## データを見てみる
+とりあえず、CSVを開いて見てみる。
+概要は以下。
+![logo](./fig/fig2.png)
 
 ## Loading and Displaying CSV
 まず、こちらのCSVファイルをUbuntuサーバに格納する。
 その後、Pythonコードで読み込み、表示させる。
 
+### Python側にディレクトリ作成
+
+```
+[実行コマンド]
+mkdir /home/mainte/kaggle_tiganic
+
+[ディレクトリ移動コマンド]
+cd /home/mainte/kaggle_titanic
+```
+
+データ名：**display_csv.py**
+とする。
 
 ## データの整備
 
