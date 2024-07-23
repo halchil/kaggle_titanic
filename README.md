@@ -23,11 +23,13 @@ Ubuntu
 
 ## データの取得
 まず、KaggleのCompetitionにアクセスしてデータを取得する。  
+
 ![logo](./fig/fig1.png)
 
 ## データを見てみる
 とりあえず、CSVを開いて見てみる。
-概要は以下。
+概要は以下。  
+
 ![logo](./fig/fig2.png)
 
 ## Loading and Displaying CSV
@@ -44,8 +46,56 @@ mkdir /home/mainte/kaggle_tiganic
 cd /home/mainte/kaggle_titanic
 ```
 
-データ名：**display_csv.py**
+### csvファイルを保存する
+ローカルPCでVMwareを使ってUbuntuサーバを立てているので、WinSCPかマウントすることでデータを転送する。
+まず、カレントディレクトリ(/home/mainte/kaggle_titanic)内で「data」ディレクトリを作成。
+
+今回、マウントポイントが/home/mainte/win_data/titanic である。
+```
+[実行コマンド]
+ll /home/mainte/win_data/titanic/
+
+[結果]
+-rwxrwx--- 1 root vboxsf  3258 Jul 20 05:32 gender_submission.csv*
+-rwxrwx--- 1 root vboxsf 28629 Jul 20 05:32 test.csv*
+-rwxrwx--- 1 root vboxsf 61194 Jul 20 05:34 train.csv*
+```
+であり、これを今回利用するディレクトリにコピーする。
+
+```
+[実行コマンド]
+cp -r /home/mainte/win_data/titanic/* /home/mainte/kaggle_titanic/data/
+
+
+[確認コマンド]
+ll /home/mainte/kaggle_titanic/data/
+
+[結果]
+-rwxrwx--- 1 root vboxsf  3258 Jul 20 05:32 gender_submission.csv*
+-rwxrwx--- 1 root vboxsf 28629 Jul 20 05:32 test.csv*
+-rwxrwx--- 1 root vboxsf 61194 Jul 20 05:34 train.csv*
+```
+
+また、現在、rootユーザもしくはvboxsfグループに所属しているユーザ以外はデータを参照できない。
+そのため、ファイルの参照権限を変更する。
+```
+[実行コマンド]
+chmod 777 /home/mainte/kaggle_titanic/data/*
+
+[確認コマンド]
+ll /home/mainte/kaggle_titanic/data/
+
+[結果]
+-rwxrwxrwx 1 mainte mainte  3258 Jul 23 12:29 gender_submission.csv*
+-rwxrwxrwx 1 mainte mainte 28629 Jul 23 12:29 test.csv*
+-rwxrwxrwx 1 mainte mainte 61194 Jul 23 12:29 train.csv*
+
+```
+
+
+プログラム名：**display_csv.py**
 とする。
+
 
 ## データの整備
 
