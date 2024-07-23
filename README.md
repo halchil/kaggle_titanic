@@ -22,9 +22,13 @@ Pythonはprint程度、numpy,pandasはインストールくらいの経験値な
 Ubuntu
 
 ## データの取得
-まず、Kaggle
+まず、KaggleのCompetitionにアクセスしてデータを取得する。
+![logo](./fig/fig1.png)
 
 ## Loading and Displaying CSV
+まず、こちらのCSVファイルをUbuntuサーバに格納する。
+その後、Pythonコードで読み込み、表示させる。
+
 
 ## データの整備
 
