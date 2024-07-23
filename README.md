@@ -102,6 +102,57 @@ ll /home/mainte/kaggle_titanic/data/
 
 csvを表示するプログラムはこちら、[display_csv.py](./code/display_csv.py)
 
+```
+[実行コマンド]
+git clone https://github.com/halchil/kaggle_titanic.git
+
+[結果]
+Cloning into 'kaggle_titanic'...
+remote: Enumerating objects: 52, done.
+remote: Counting objects: 100% (52/52), done.
+remote: Compressing objects: 100% (35/35), done.
+remote: Total 52 (delta 10), reused 48 (delta 9), pack-reused 0
+Receiving objects: 100% (52/52), 427.37 KiB | 240.00 KiB/s, done.
+Resolving deltas: 100% (10/10), done.
+ll /home/mainte/kaggle_titanic/kaggle_titanic/code/display_csv.py 
+-rw-rw-r-- 1 mainte mainte 473 Jul 23 13:46 /home/mainte/kaggle_titanic/kaggle_titanic/code/display_csv.py
+```
+仮想環境に入る。
+
+```
+[実行コマンド]
+source myenv/bin/activate
+
+[確認コマンド]
+echo $VIRTUAL_ENV
+
+[結果]
+/home/mainte/myenv
+
+```
+`pip list`コマンドで利用可能なパッケージを表示してもいいが、さっそくPyhonのコードを実行する。
+
+```
+[実行コマンド]
+python3 /home/mainte/kaggle_titanic/kaggle_titanic/code/display_csv.py 
+
+[結果]
+   PassengerId  Survived  Pclass                                               Name     Sex   Age  SibSp  Parch            Ticket     Fare Cabin Embarked
+0            1         0       3                            Braund, Mr. Owen Harris    male  22.0      1      0         A/5 21171   7.2500   NaN        S
+1            2         1       1  Cumings, Mrs. John Bradley (Florence Briggs Th...  female  38.0      1      0          PC 17599  71.2833   C85        C
+2            3         1       3                             Heikkinen, Miss. Laina  female  26.0      0      0  STON/O2. 3101282   7.9250   NaN        S
+3            4         1       1       Futrelle, Mrs. Jacques Heath (Lily May Peel)  female  35.0      1      0            113803  53.1000  C123        S
+4            5         0       3                           Allen, Mr. William Henry    male  35.0      0      0            373450   8.0500   NaN        S
+----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+   PassengerId  Pclass                                          Name     Sex   Age  SibSp  Parch   Ticket     Fare Cabin Embarked
+0          892       3                              Kelly, Mr. James    male  34.5      0      0   330911   7.8292   NaN        Q
+1          893       3              Wilkes, Mrs. James (Ellen Needs)  female  47.0      1      0   363272   7.0000   NaN        S
+2          894       2                     Myles, Mr. Thomas Francis    male  62.0      0      0   240276   9.6875   NaN        Q
+3          895       3                              Wirz, Mr. Albert    male  27.0      0      0   315154   8.6625   NaN        S
+4          896       3  Hirvonen, Mrs. Alexander (Helga E Lindqvist)  female  22.0      1      1  3101298  12.2875   NaN        S
+```
+となり、`train.csv`と`test.csv`を表示することができた。
+(GitHubとのファイルのやり取りがめんどくさいので、マウントポイントなどを工夫してデータ移動工数を下げたい。)
 
 ## データの整備
 
