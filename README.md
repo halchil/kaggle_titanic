@@ -20,6 +20,10 @@ Pythonはprint程度、numpy,pandasはインストールくらいの経験値な
 
 ## 前提条件
 Ubuntu
+Python3 がインストール済
+Python仮想環境について、頭で利用方法をイメージできる
+numpyインストール済
+pandasインストール済
 
 ## データの取得
 まず、KaggleのCompetitionにアクセスしてデータを取得する。  
@@ -37,6 +41,8 @@ Ubuntu
 その後、Pythonコードで読み込み、表示させる。
 
 ### Python側にディレクトリ作成
+今回の作業を行う用のディレクトリを作成する。
+丁寧に作業をしていきたいので、1つ1つ確認しながら進めていきたい。
 
 ```
 [実行コマンド]
@@ -92,9 +98,9 @@ ll /home/mainte/kaggle_titanic/data/
 
 ```
 
+### display csv
 
-プログラム名：**display_csv.py**
-とする。
+csvを表示するプログラムはこちら、[display_csv.py](./code/display_csv.py)
 
 
 ## データの整備
