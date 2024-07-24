@@ -152,7 +152,12 @@ python3 /home/mainte/kaggle_titanic/kaggle_titanic/code/display_csv.py
 4          896       3  Hirvonen, Mrs. Alexander (Helga E Lindqvist)  female  22.0      1      1  3101298  12.2875   NaN        S
 ```
 となり、`train.csv`と`test.csv`を表示することができた。
+
+こちら、train.csvは学習用データなので「Survived」という項目がある。
+一方で、test.csvはいわゆる問題用紙のようなもので、モデルを使ってSurvivedの有無を後で書く用のデータである。
+
 (GitHubとのファイルのやり取りがめんどくさいので、マウントポイントなどを工夫してデータ移動工数を下げたい。)
+
 
 ## データの整備
 
@@ -169,6 +174,53 @@ python3 /home/mainte/kaggle_titanic/kaggle_titanic/code/display_csv.py
 
 そのため、ある人の考えがデータの内容に影響を及ぼすケースも少なくない。
 そのような織り込まれた思想まで管理することができれば、よりよいデータ活用につながるだろう。
+
+今回使うプログラムは、[delete_extra_data.py](./code/delete_extra_data.py)
+
+### データの概要・代表的な値を確認
+
+まずは、pandasのshape機能を使って、
+
+```
+[実行コマンド]
+python3 /home/mainte/code/delete_extra_data.py 
+
+[結果]
+(891, 12)
+(418, 11)
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== 
+<bound method NDFrame.describe of      PassengerId  Survived  Pclass                                               Name     Sex   Age  SibSp  Parch            Ticket     Fare Cabin Embarked
+0              1         0       3                            Braund, Mr. Owen Harris    male  22.0      1      0         A/5 21171   7.2500   NaN        S
+1              2         1       1  Cumings, Mrs. John Bradley (Florence Briggs Th...  female  38.0      1      0          PC 17599  71.2833   C85        C
+2              3         1       3                             Heikkinen, Miss. Laina  female  26.0      0      0  STON/O2. 3101282   7.9250   NaN        S
+3              4         1       1       Futrelle, Mrs. Jacques Heath (Lily May Peel)  female  35.0      1      0            113803  53.1000  C123        S
+4              5         0       3                           Allen, Mr. William Henry    male  35.0      0      0            373450   8.0500   NaN        S
+..           ...       ...     ...                                                ...     ...   ...    ...    ...               ...      ...   ...      ...
+886          887         0       2                              Montvila, Rev. Juozas    male  27.0      0      0            211536  13.0000   NaN        S
+887          888         1       1                       Graham, Miss. Margaret Edith  female  19.0      0      0            112053  30.0000   B42        S
+888          889         0       3           Johnston, Miss. Catherine Helen "Carrie"  female   NaN      1      2        W./C. 6607  23.4500   NaN        S
+889          890         1       1                              Behr, Mr. Karl Howell    male  26.0      0      0            111369  30.0000  C148        C
+890          891         0       3                                Dooley, Mr. Patrick    male  32.0      0      0            370376   7.7500   NaN        Q
+
+[891 rows x 12 columns]>
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== 
+<bound method NDFrame.describe of      PassengerId  Pclass                                          Name     Sex   Age  SibSp  Parch              Ticket      Fare Cabin Embarked
+0            892       3                              Kelly, Mr. James    male  34.5      0      0              330911    7.8292   NaN        Q
+1            893       3              Wilkes, Mrs. James (Ellen Needs)  female  47.0      1      0              363272    7.0000   NaN        S
+2            894       2                     Myles, Mr. Thomas Francis    male  62.0      0      0              240276    9.6875   NaN        Q
+3            895       3                              Wirz, Mr. Albert    male  27.0      0      0              315154    8.6625   NaN        S
+4            896       3  Hirvonen, Mrs. Alexander (Helga E Lindqvist)  female  22.0      1      1             3101298   12.2875   NaN        S
+..           ...     ...                                           ...     ...   ...    ...    ...                 ...       ...   ...      ...
+413         1305       3                            Spector, Mr. Woolf    male   NaN      0      0           A.5. 3236    8.0500   NaN        S
+414         1306       1                  Oliva y Ocana, Dona. Fermina  female  39.0      0      0            PC 17758  108.9000  C105        C
+415         1307       3                  Saether, Mr. Simon Sivertsen    male  38.5      0      0  SOTON/O.Q. 3101262    7.2500   NaN        S
+416         1308       3                           Ware, Mr. Frederick    male   NaN      0      0              359309    8.0500   NaN        S
+417         1309       3                      Peter, Master. Michael J    male   NaN      1      1                2668   22.3583   NaN        C
+
+[418 rows x 11 columns]>
+```
+
+データの代表的な
 
 ## 決定木での学習
 

@@ -6,4 +6,12 @@ import pandas as pd
 train = pd.read_csv("/home/mainte/kaggle_titanic/data/train.csv")
 test = pd.read_csv("/home/mainte/kaggle_titanic/data/test.csv")
 
-print(train.head())
+#データの大きさ表示
+print(train.shape)
+print(test.shape)
+print("===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ")
+
+# データの代表的な値を表示
+print(train.describe)
+print("===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ")
+print(test.describe)
