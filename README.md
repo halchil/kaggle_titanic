@@ -225,6 +225,7 @@ max: 最大値
 まずは、どの程度欠損データがあるのか把握し、その後でその欠損データの扱いを考えていく。
 
 isnullで判定、sum()で各列の欠損地のデータを出す。
+```
 python3 /home/mainte/code/delete_extra_data.py 
 PassengerId      0
 Survived         0
@@ -238,8 +239,10 @@ Ticket           0
 Fare             0
 Cabin          687
 Embarked         2
-
+```
 パーセントに変換する。
+
+```
 PassengerId     0.000000
 Survived        0.000000
 Pclass          0.000000
@@ -252,6 +255,7 @@ Ticket          0.000000
 Fare            0.000000
 Cabin          77.104377
 Embarked        0.224467
+```
 
 これらより、Cabinのデータは欠損率77%ということで、あまり活用できなそうな感じがしている。
 
