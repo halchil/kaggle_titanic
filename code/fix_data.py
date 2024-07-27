@@ -61,3 +61,60 @@ print(f_kesson_table(train))
 
 print(f'test is {test.shape}')
 print(f_kesson_table(test))
+
+# print(train.describe())
+
+# Ageの欠損値は、中央値medianでfillnaする。
+train['Age'] = train['Age'].fillna(train['Age'].median())
+test['Age'] = test['Age'].fillna(test['Age'].median())
+test['Fare'] = test['Fare'].fillna(test['Fare'].median())
+
+# Embarkedは2件欠損があったが、最もおおいSで置き換える
+train['Embarked'] = train['Embarked'].fillna('S')
+
+
+print(f'train is {train.shape}')
+print(f_kesson_table(train))
+
+print(f'test is {test.shape}')
+print(f_kesson_table(test))
+
+# 文字列を数値に変換する
+
+'''
+この書き方は推奨されていない
+train["Sex"][train["Sex"] == "male"] = 0
+train["Sex"][train["Sex"] == "female"] = 1
+train["Embarked"][train["Embarked"] == "S" ] = 0
+train["Embarked"][train["Embarked"] == "C" ] = 1
+train["Embarked"][train["Embarked"] == "Q"] = 2
+'''
+
+# train['Sex'].loc[train['Sex'] == 'male'] = 0
+train.loc[train['Sex'] == 'male', 'Sex'] = 0
+
+# train['Sex'].loc[train['Sex'] == 'female'] = 1
+train.loc[train['Sex'] == 'female', 'Sex'] = 1
+
+# train['Embarked'].loc[train['Embarked'] == 'S'] = 0
+train.loc[train['Embarked'] == 'S', 'Embarked'] = 0
+train.loc[train['Embarked'] == 'C', 'Embarked'] = 1
+train.loc[train['Embarked'] == 'Q', 'Embarked'] = 2
+
+print(train.head(10))
+
+test.loc[test['Sex'] == 'male', 'Sex'] = 0
+test.loc[test['Sex'] == 'female', 'Sex'] = 1
+
+test.loc[test['Embarked'] == 'S', 'Embarked'] = 0
+test.loc[test['Embarked'] == 'C', 'Embarked'] = 1
+test.loc[test['Embarked'] == 'Q', 'Embarked'] = 2
+
+
+print(test.head(10))
+
+d_train_fix = pd.DataFrame(train)
+d_test_fix = pd.DataFrame(test)
+
+d_train_fix.to_csv('/home/mainte/kaggle_titanic/data/train_fix.csv')
+d_test_fix.to_csv('/home/mainte/kaggle_titanic/data/test_fix.csv')

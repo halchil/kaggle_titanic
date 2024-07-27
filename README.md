@@ -175,7 +175,7 @@ python3 /home/mainte/kaggle_titanic/kaggle_titanic/code/display_csv.py
 そのため、ある人の考えがデータの内容に影響を及ぼすケースも少なくない。
 そのような織り込まれた思想まで管理することができれば、よりよいデータ活用につながるだろう。
 
-今回使うプログラムは、[delete_extra_data.py](./code/delete_extra_data.py)
+今回使うプログラムは、[fix_data.py](./code/fix_data.py)
 
 ### データの概要・代表的な値を確認
 
@@ -183,7 +183,7 @@ python3 /home/mainte/kaggle_titanic/kaggle_titanic/code/display_csv.py
 
 ```
 [実行コマンド]
-python3 /home/mainte/code/delete_extra_data.py 
+python3 /home/mainte/code/fix_data.py 
 
 [結果]
 (891, 12)
@@ -226,7 +226,7 @@ max: 最大値
 
 isnullで判定、sum()で各列の欠損地のデータを出す。
 ```
-python3 /home/mainte/code/delete_extra_data.py 
+python3 /home/mainte/code/fix_data.py 
 PassengerId      0
 Survived         0
 Pclass           0
